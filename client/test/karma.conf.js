@@ -22,6 +22,8 @@ module.exports = function(config) {
       // bower:js
       'bower_components/angular/angular.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/qrcode/lib/qrcode.js',
+      'bower_components/angular-qr/src/angular-qr.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

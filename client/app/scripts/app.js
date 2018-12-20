@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('ecocvApp', ['ui.router'])
+  .module('ecocvApp', ['ui.router', 'ja.qr'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider.state('home', {

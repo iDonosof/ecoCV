@@ -8,10 +8,7 @@
  * Controller of the ecocvApp
  */
 angular.module('ecocvApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', function ($scope) {
+    $scope.qrString = '';
+    $scope.qrToGenerate = '';
+  }]);
