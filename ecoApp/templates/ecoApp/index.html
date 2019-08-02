@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>ECO CV 🌳</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="icon" href="/static/img/logo.ico">
+        <!--import fontawesome-->
+        <script src="https://kit.fontawesome.com/516b14468d.js"></script>
+
+        <!-- Own Css-->
+        <link rel="stylesheet" href="/static/css/footer.css">
+
+        <!--Bootstrap 4 -->
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #D3FFCE;">
+                {% if False %}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/curriculum">Curriculum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Cerrar sesión</button>
+                {% else %}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="/login">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button">Iniciar Sesion</button>
+                </a>
+                &nbsp;&nbsp;
+                <a href="/signin">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button">Registrarse</button>
+                </a>
+                {% endif %}
+            </nav> 
+        </header>
+        <main class="container">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <hr>
+        <footer class="container">
+            <div class="row">
+
+                <div class="image-footer col">
+                    <img src="/static/img/image-footer.webp" alt="Imagen representando la ecologia tecnologica">
+                </div>
+
+                <div class="content-footer row">
+                    <div class="signin-footer col align-self-center">
+                        <h3>
+                            Registrate gratis 
+                            <i class="fas fa-arrow-alt-circle-right"></i>
+                            <a class="btn btn-outline-success" href="/signin">Registrase!</a>
+                        </h3>
+                    </div>
+                    <hr>
+                    <div class="social-networks col align-self-center">
+                        <a href="https://www.facebook.com/DuocUC/">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/DuocUC">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/duocuc_cl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+        <hr>
+        {% bootstrap_javascript jquery='full' %}
+    </body>
+</html>

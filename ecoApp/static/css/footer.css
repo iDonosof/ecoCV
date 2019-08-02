@@ -1,0 +1,31 @@
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.image-footer {
+    max-width: 50%;
+    width: 50%;
+}
+
+.image-footer img {
+    max-width: 100%;
+    width: 80%;
+    border-radius: 5px;
+    margin: 30px;
+}
+
+.content-footer {
+    max-width: 50%;
+    width: 50%;
+}
+
+.social-networks i {
+    font-size: 45px;
+    margin: 10px;
+}
+
+.social-networks a {
+    text-decoration: none;
+}
