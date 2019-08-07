@@ -1,4 +1,26 @@
 {% extends 'ecoApp/index.html' %}
 {% block content %}
-    <p>Un login bonito</p>
+    <div class="container">
+        <p>
+            {{alert}}
+        </p>
+        <div class="row align-items-center">
+            <div class="col-6">
+                <form action="" class="form" id="login-form" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Nombre de usuario</label>
+                        <input class="form-control" type="text" id="username" name="username" placeholder="Ingresar nombre de usuario"
+                            data-toggle="tooltip" title="Ingresar nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Ingresar nombre de usuario"
+                            data-toggle="tooltip" title="Ingresar nombre de usuario">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

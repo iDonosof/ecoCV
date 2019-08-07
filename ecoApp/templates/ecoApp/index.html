@@ -20,7 +20,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #D3FFCE;">
-                {% if False %}
+                {% if user.is_authenticated %}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
@@ -34,7 +34,10 @@
                         </li>
                     </ul>
                 </div>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Cerrar sesión</button>
+                <form id="form-logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerrar sesión</button>
+                </form>
                 {% else %}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
