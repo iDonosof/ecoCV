@@ -1,4 +1,82 @@
 {% extends 'ecoApp/index.html' %}
 {% block content %}
-    <p>Un signin bonito</p>
-{% endblock %}
+    <div class="container">
+        {% if alert %}
+            <div class="alert alert-success" role="alert">
+                Ocurrio un error al ingresar al usuario, intentelo mas tarde
+            </div>
+        {% endif %}
+        <form action="" method="POST" id="signin-form">
+            {% csrf_token %}    
+            <div class="row form-group">
+                <div class="col">
+                    <label for="username">Nombre de usuario</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="Ingresar nombre de usuario"
+                        data-toggle="tooltip" title="Ingresar nombre de usuario"
+                        maxlength="255" required autofocus>
+                </div>
+                <div class="col">
+                    <label for="password">Contraseña</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="Ingresar contraseña"
+                        data-toggle="tooltip" title="Ingresar contraseña"
+                        maxlength="255" required>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="firstName">Primer nombre</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ingresar primer nombre"
+                    data-toggle="tooltip" title="Ingresar primer nombre"
+                    maxlength="255" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellido</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ingresar apellido"
+                    data-toggle="tooltip" title="Ingresar apellido"
+                    maxlength="255" required>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="rut">Rut</label>
+                    <input type="number" class="form-control" id="rut" name="rut" placeholder="Ingresar rut (Sin puntos ni digito verificador)"
+                        data-toggle="tooltip" title="Ingresar rut (Sin puntos ni digito verificador)"
+                        maxlength="8" required>
+                    <small>Ingresar sin puntos ni digito verificador</small>
+                </div>
+                <div class="form-group col">
+                    <label for="dv">Digito verificador</label>
+                    <input type="text" class="form-control" id="dv" name="dv" placeholder="Ingresar digito verificador"
+                        data-toggle="tooltip" title="Ingresar digito verificador"
+                        maxlength="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthDate">Fecha de nacimiento</label>
+                <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Ingresar fecha de nacimiento"
+                    data-toggle="tooltip" title="Ingresar fecha de nacimiento"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electronico</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="Ingresar correo electronico"
+                    data-toggle="tooltip" title="Ingresar correo electronico"
+                    maxlength="255" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Direccion</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Ingresar direccion"
+                    data-toggle="tooltip" title="Ingresa direccion"
+                    maxlength="500" required>  
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Numero telefonico</label>
+                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Ingresar numero telefonico"
+                    data-toggle="tooltip" title="Ingresar numero telefonico"
+                    maxlength="10" required>
+            </div>
+            <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Click para registrarse!">
+                Registrarse!
+            </button>
+        </form>
+    </div>
+    {% endblock %}
