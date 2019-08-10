@@ -7,6 +7,7 @@ from django.template.context_processors import request
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from .models import Curriculum
 
 
 # Create your views here.
@@ -62,8 +63,24 @@ def signin(request):
     variables = {'alert': alert}
     return render(request, 'ecoApp/signin.html', variables)
 
+@login_required(login_url = 'login')
 def curriculum(request):
-    return render(request, 'ecoApp/curriculum.html', {})
+    alert = False
+    if request.method == 'POST':
+        profile = User.objects.get(username = request.user).profile
+        curriculum = Curriculum()
+        curriculum.academic_training = request.POST.get('academicTraining')
+        curriculum.further_training = request.POST.get('furtherTraining')
+        curriculum.work_experience = request.POST.get('workExperience')
+        curriculum.languages = request.POST.get('languages')
+        curriculum.description = request.POST.get('description')
+        curriculum.knowledge = request.POST.get('knowledge')
+        curriculum.user_profile = profile
+        curriculum.save()
+        alert = True
+    variables = {'alert': alert}
+    return render(request, 'ecoApp/curriculum.html', variables)
 
+@login_required(login_url = 'login')
 def profile(request):
     return render(request, 'ecoApp/profile.html', {})
