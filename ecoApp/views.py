@@ -66,19 +66,24 @@ def signin(request):
 @login_required(login_url = 'login')
 def curriculum(request):
     alert = False
+    success = False
     if request.method == 'POST':
-        profile = User.objects.get(username = request.user).profile
-        curriculum = Curriculum()
-        curriculum.academic_training = request.POST.get('academicTraining')
-        curriculum.further_training = request.POST.get('furtherTraining')
-        curriculum.work_experience = request.POST.get('workExperience')
-        curriculum.languages = request.POST.get('languages')
-        curriculum.description = request.POST.get('description')
-        curriculum.knowledge = request.POST.get('knowledge')
-        curriculum.user_profile = profile
-        curriculum.save()
-        alert = True
-    variables = {'alert': alert}
+        try:
+            profile = User.objects.get(username = request.user).profile
+            curriculum = Curriculum()
+            curriculum.academic_training = request.POST.get('academicTraining')
+            curriculum.further_training = request.POST.get('furtherTraining')
+            curriculum.work_experience = request.POST.get('workExperience')
+            curriculum.languages = request.POST.get('languages')
+            curriculum.description = request.POST.get('description')
+            curriculum.knowledge = request.POST.get('knowledge')
+            curriculum.user_profile = profile
+            curriculum.save()
+            success = True
+        except:
+            alert = True
+    variables = {'alert': alert,
+                 'success': success}
     return render(request, 'ecoApp/curriculum.html', variables)
 
 @login_required(login_url = 'login')

@@ -1,4 +1,58 @@
 {% extends 'ecoApp/index.html' %}
 {% block content %}
-    <p>curriculum form content</p>
+    <br>
+    {% if success %}
+        <div class="alert alert-success" role="alert">
+            El curriculum a sido registrado exitosamente.
+        </div>
+        <hr>
+    {% endif %}
+    {% if alert %}
+        <div class="alert alert-danger" role="alert">
+            Ocurrió un error inesperado al ingresar el curriculum, intentelo mas tarde.
+        </div>
+        <hr>
+    {% endif %}
+    <div class="container">
+        <form action="" class="form" id="curriculum-form" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="academicTraining">Antecedentes academicos</label>
+                <textarea class="form-control" name="academicTraining" id="academicTraining" cols="150" rows="5" placeholder="Ingresa tu conocimiento academico"
+                    data-toggle="tooltip" title="Ingresa tu conocimiento academico"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="furtherTraining">Conocimiento adicional</label>
+                <textarea class="form-control" name="furtherTraining" id="furtherTraining" cols="150" rows="5" placeholder="Ingresa tu conocimiento adicional que poseas"
+                    data-toggle="tooltip" title="Ingresa tu conocimiento adicional"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="workExperience">Experiencia profecional</label>
+                <textarea class="form-control" name="workExperience" id="workExperience" cols="150" rows="5" placeholder="Ingresa tu experiencia profecional"
+                    data-toggle="tooltip" title="Ingresa tu experiencia profecional"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="languages">Idiomas</label>
+                <textarea class="form-control" name="languages" id="languages" cols="150" rows="5" placeholder="Ingresa los idiomas que dominas"
+                    data-toggle="tooltip" title="Ingresa los idiomas que dominas"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripcion personal</label>
+                <textarea class="form-control" name="description" id="description" cols="150" rows="5" placeholder="Ingresa una breve descripcion de ti"
+                    data-toggle="tooltip" title="Ingresa una breve descripcion de ti"
+                    style="resize: none;"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="knowledge">Areas de conocimiento y/o habilidades blandas</label>
+                <textarea class="form-control" name="knowledge" id="knowledge" cols="150" rows="5" placeholder="Ingresa tus areas de conocimiento y/o habilidades blandas"
+                    data-toggle="tooltip" title="Ingresa tus areas de conocimiento"
+                    style="resize: none;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Ingresar">Ingresar</button>
+        </form>
+    </div>
 {% endblock %}
