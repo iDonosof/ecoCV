@@ -24,7 +24,7 @@ def save_user_profile(sender, instance, **kwargs):
 
 class Curriculum(models.Model):
     user_profile = models.ForeignKey('Profile', on_delete = models.CASCADE)
-    academic_training = models.TextField(null = True, blank = True),
+    academic_training = models.TextField(null = True, blank = True)
     further_training = models.TextField(null = True, blank = True)
     work_experience = models.TextField(null = True, blank = True)
     languages = models.TextField(null = True, blank = True)
