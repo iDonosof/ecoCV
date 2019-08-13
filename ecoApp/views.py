@@ -98,4 +98,6 @@ def personal_information(request):
     return render(request, 'ecoApp/personal_information.html', variables)
 
 def personal_curriculum(request):
-    return render(request, 'ecoApp/personal_curriculum.html', {})
+    curriculum = Curriculum.objects.latest('pk')
+    variables = {'curriculum': curriculum}
+    return render(request, 'ecoApp/personal_curriculum.html', variables)
