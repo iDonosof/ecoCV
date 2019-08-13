@@ -89,3 +89,13 @@ def curriculum(request):
 @login_required(login_url = 'login')
 def profile(request):
     return render(request, 'ecoApp/profile.html', {})
+
+def personal_information(request):
+    alert = False
+    profile = User.objects.get(username = request.user).profile
+    variables = {'alert': alert,
+                 'profile': profile}
+    return render(request, 'ecoApp/personal_information.html', variables)
+
+def personal_curriculum(request):
+    return render(request, 'ecoApp/personal_curriculum.html', {})
