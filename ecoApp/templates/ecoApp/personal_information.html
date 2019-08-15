@@ -42,7 +42,7 @@
             <label for="birthDate">Fecha de nacimiento</label>
             <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Ingresar fecha de nacimiento"
                 data-toggle="tooltip" title="Ingresar fecha de nacimiento"
-                required disabled value={{profile.birth_date}}>
+                required disabled value={{profile.birth_date|date:"Y/m/d"}}>
         </div>
         <div class="form-group">
             <label for="email">Correo electronico</label>
