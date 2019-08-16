@@ -92,12 +92,18 @@ def profile(request):
 
 def personal_information(request):
     alert = False
+    edit  = False
     profile = User.objects.get(username = request.user).profile
+    rut_concated = str(profile.rut) + '-' + profile.dv
     variables = {'alert': alert,
-                 'profile': profile}
+                 'profile': profile,
+                 'rut_concated': rut_concated,
+                 'edit': edit}
     return render(request, 'ecoApp/personal_information.html', variables)
 
 def personal_curriculum(request):
+    edit = False
     curriculum = Curriculum.objects.latest('pk')
-    variables = {'curriculum': curriculum}
+    variables = {'curriculum': curriculum,
+                 'edit': edit}
     return render(request, 'ecoApp/personal_curriculum.html', variables)

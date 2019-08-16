@@ -1,5 +1,27 @@
 {% extends 'ecoApp/profile.html' %}
 {% block profile_content %}
+    <!-- Qr code generator -->
+    {% load qr_code %} 
+    <hr>
+    <div class="container">
+        <div class="row ">
+            <div class="col"></div>
+            <div class="col-6">
+                <h3 class="h3">
+                    Aqui tenemos tu código QR
+                </h3>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <img id="qr" src="{% qr_url_from_text rut_concated size=20 version=2 image_format='png' %}" alt="Curriculum codigo qr" download>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <hr>
     <form action="" method="POST" id="signin-form">
         {% csrf_token %}    
         <div class="row form-group">
